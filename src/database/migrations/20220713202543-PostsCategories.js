@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const PostsCategoriesTable = queryInterface.createTable("PostsCategories", {
+    const PostCategoriesTable = queryInterface.createTable("PostCategories", {
       postId: {
         type: Sequelize.INTEGER,
         references: {
@@ -23,8 +23,8 @@ module.exports = {
       },
     });
 
-    return PostsCategoriesTable;
+    return PostCategoriesTable;
   },
 
-  down: async (queryInterface) => queryInterface.dropTable("PostsCategories"),
+  down: async (queryInterface) => queryInterface.dropTable("PostCategories"),
 };
