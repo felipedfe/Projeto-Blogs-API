@@ -1,12 +1,5 @@
-const jwt = require('jsonwebtoken');
 const loginService = require('../services/loginService');
-
-const jwtConfig = {
-  expiresIn: '7d',
-  algorithm: 'HS256',
-};
-
-const secret = process.env.JWT_SECRET;
+const generateToken = require('../helpers/generateToken');
 
 // POST
 const login = async (req, res, next) => {
@@ -15,9 +8,8 @@ const login = async (req, res, next) => {
   if (data.error) return next(data.error);
 
   // Gerando token
-  const token = jwt.sign({ data }, secret, jwtConfig);
+  const token = generateToken(data);
 
-  console.log('-=-=->', data);
   return res.status(200).json({ token });
 };
 

@@ -6,21 +6,21 @@ const statusByErrorCode = {
 };
 
 const statusByErrorMessage = {
-  '"quantity" must be greater than or equal to 1':
-    422,
-  '"quantity" is required': 400,
-  '"productId" is required': 400,
-  '"name" is required': 400,
-  '"name" length must be at least 5 characters long': 422,
+  '"displayName" length must be at least 8 characters long':
+    400,
+  '"password" length must be at least 6 characters long': 400,
+  '"image" is required': 400,
 };
   
 module.exports = (err, req, res, _next) => {
   if (err.isJoi) {
-    const errorMessage = err.details.message;
-
+    console.log(err.isJoi);
+    const errorMessage = err.message;
+    console.log('--->', errorMessage);
+    
     const statusJoi = statusByErrorMessage[errorMessage];
     return res.status(statusJoi)
-      .json({ message: errorMessage });
+    .json({ message: errorMessage });
   }
 
   const status = statusByErrorCode[err.code] || 500;
