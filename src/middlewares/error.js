@@ -11,6 +11,7 @@ const statusByErrorMessage = {
     400,
   '"password" length must be at least 6 characters long': 400,
   '"image" is required': 400,
+  '"name" is required': 400,
 };
   
 module.exports = (err, req, res, _next) => {
