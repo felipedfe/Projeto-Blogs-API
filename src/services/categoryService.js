@@ -5,7 +5,7 @@ const getCategories = async () => {
   const response = Category.findAll();
 
   return response;
-}
+};
 
 // POST
 const addCategory = async (name) => {
