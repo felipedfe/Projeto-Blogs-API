@@ -1,6 +1,13 @@
 const Joi = require('joi');
 const userService = require('../services/userService');
-const generateToken = require('../helpers/generateToken');
+const { generateToken } = require('../helpers/generateToken');
+
+// GET
+const getUser = async (req, res) => {
+  const users = await userService.getUser();
+
+  res.status(200).json(users);
+};
 
 // POST
 const addUser = async (req, res, next) => {
@@ -25,4 +32,5 @@ const addUser = async (req, res, next) => {
 
 module.exports = {
   addUser,
+  getUser,
 };

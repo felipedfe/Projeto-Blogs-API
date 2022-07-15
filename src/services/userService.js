@@ -13,6 +13,12 @@ const validateEmail = (email) => {
   return {};
 };
 
+// GET
+const getUser = async () => {
+ const users = await userModel.getUser();
+ return users;
+};
+
 // POST
 const addUser = async (user) => {
   const { email } = user;
@@ -29,4 +35,5 @@ const addUser = async (user) => {
 
 module.exports = {
   addUser,
+  getUser,
 };

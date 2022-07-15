@@ -1,5 +1,6 @@
 const statusByErrorCode = {
   badRequest: 400,
+  unauthorized: 401,
   notFound: 404,
   alreadyExists: 409,
   unprocessableEntity: 422,

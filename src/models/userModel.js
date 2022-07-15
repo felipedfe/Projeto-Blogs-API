@@ -1,5 +1,13 @@
 const { User } = require('../database/models');
 
+// GET
+const getUser = async () => {
+  const users = User.findAll({
+    attributes: { exclude: ['password'] },
+  });
+  return users;
+}
+
 // POST
 const addUser = async (data) => {
   const { email } = data;
@@ -8,18 +16,13 @@ const addUser = async (data) => {
     where: { email },
     raw: true,
   });
-  console.log('==========>', {user});
 
   if (!user) User.create(data);
-  // if (!user) {
-  //   User.create(data);
-  //   return user
-  // }
-
 
   return {user};
 };
 
 module.exports = {
   addUser,
+  getUser,
 };
