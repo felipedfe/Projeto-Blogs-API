@@ -3,10 +3,21 @@ const userService = require('../services/userService');
 const { generateToken } = require('../helpers/generateToken');
 
 // GET
-const getUser = async (req, res) => {
+const getUser = async (_req, res) => {
   const users = await userService.getUser();
 
   res.status(200).json(users);
+};
+
+const getUserById = async (req, res, next) => {
+  const { id } = req.params;
+
+  const response = await userService.getUserById(id);
+
+  if (response.error) return next(response.error);
+
+  const { user } = response;
+  return res.status(200).json(user);
 };
 
 // POST
@@ -33,4 +44,5 @@ const addUser = async (req, res, next) => {
 module.exports = {
   addUser,
   getUser,
+  getUserById,
 };

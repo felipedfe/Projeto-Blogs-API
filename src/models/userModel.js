@@ -5,8 +5,19 @@ const getUser = async () => {
   const users = User.findAll({
     attributes: { exclude: ['password'] },
   });
+
   return users;
-}
+};
+
+const getUserById = async (id) => {
+  const response = {};
+  response.user = await User.findOne({
+    where: {id},
+    attributes: { exclude: ['password'] }
+  })
+
+  return response;
+};
 
 // POST
 const addUser = async (data) => {
@@ -25,4 +36,5 @@ const addUser = async (data) => {
 module.exports = {
   addUser,
   getUser,
+  getUserById,
 };

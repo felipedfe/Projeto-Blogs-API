@@ -19,6 +19,17 @@ const getUser = async () => {
  return users;
 };
 
+const getUserById = async (id) => {
+  const response = await userModel.getUserById(id);
+
+  if (!response.user) {
+    response.error = throwError('notFound', 'User does not exist');
+    return response.error;
+  }
+
+  return response;
+};
+
 // POST
 const addUser = async (user) => {
   const { email } = user;
@@ -36,4 +47,5 @@ const addUser = async (user) => {
 module.exports = {
   addUser,
   getUser,
+  getUserById,
 };
