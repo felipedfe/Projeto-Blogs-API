@@ -13,7 +13,7 @@ const getUserById = async (id) => {
   const response = {};
   response.user = await User.findOne({
     where: {id},
-    attributes: { exclude: ['password'] }
+    attributes: { exclude: ['password'] },
   })
 
   return response;
