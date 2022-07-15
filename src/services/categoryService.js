@@ -1,5 +1,13 @@
 const { Category } = require('../database/models');
 
+// GET
+const getCategories = async () => {
+  const response = Category.findAll();
+
+  return response;
+}
+
+// POST
 const addCategory = async (name) => {
   const response = await Category.create(name);
 
@@ -8,4 +16,5 @@ const addCategory = async (name) => {
 
 module.exports = {
   addCategory,
+  getCategories,
 };

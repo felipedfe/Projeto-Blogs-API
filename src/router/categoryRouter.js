@@ -7,5 +7,6 @@ const categoryController = require('../controllers/categoryController');
 router.use(validateJwt);
 
 router.post('/', categoryController.addCategory);
+router.get('/', categoryController.getCategories);
 
 module.exports = router;

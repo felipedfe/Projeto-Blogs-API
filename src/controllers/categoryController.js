@@ -1,6 +1,14 @@
 const Joi = require('joi');
 const categoryService = require('../services/categoryService');
 
+// GET
+const getCategories = async (_req, res) => {
+  const response = await categoryService.getCategories();
+
+  return res.status(200).send(response);
+};
+
+// POST
 const addCategory = async (req, res, next) => {
   const name = req.body;
 
@@ -17,4 +25,5 @@ const addCategory = async (req, res, next) => {
 
 module.exports = {
   addCategory,
+  getCategories,
 };
