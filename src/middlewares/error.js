@@ -6,6 +6,11 @@ const statusByErrorCode = {
   unprocessableEntity: 422,
 };
 
+const statusByJoiMessage = {
+  '"categoryIds" not found': 400,
+  'Some required fields are missing': 400,
+};
+
 const statusByErrorMessage = {
   '"displayName" length must be at least 8 characters long':
     400,
@@ -13,19 +18,19 @@ const statusByErrorMessage = {
   '"image" is required': 400,
   '"name" is required': 400,
 };
-  
+
 module.exports = (err, req, res, _next) => {
   if (err.isJoi) {
     console.log(err.isJoi);
     const errorMessage = err.message;
     console.log('--->', errorMessage);
-    
+
     const statusJoi = statusByErrorMessage[errorMessage];
     return res.status(statusJoi)
-    .json({ message: errorMessage });
+      .json({ message: errorMessage });
   }
-
-  const status = statusByErrorCode[err.code] || 500;
+  console.log(err.message);
+  const status = statusByErrorCode[err.code] || statusByJoiMessage[err.message] || 500;
 
   return res.status(status).json({ message: err.message });
 };
