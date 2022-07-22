@@ -8,6 +8,16 @@ const getPosts = async (req, res) => {
   return res.status(200).send(response);
 };
 
+const getPostById = async (req, res, next) => {
+  const { id } = req.params;
+
+  const response = await postService.getPostById(id);
+
+  if (response.error) return next(response.error);
+
+  return res.status(200).json(response);
+};
+
 // POST
 const addPost = async (req, res, next) => {
   const { id: userId } = req.user.dataValues;
@@ -34,4 +44,5 @@ const addPost = async (req, res, next) => {
 module.exports = {
   getPosts,
   addPost,
+  getPostById,
 };  

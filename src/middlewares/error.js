@@ -29,7 +29,6 @@ module.exports = (err, req, res, _next) => {
     return res.status(statusJoi)
       .json({ message: errorMessage });
   }
-  console.log(err.message);
   const status = statusByErrorCode[err.code] || statusByJoiMessage[err.message] || 500;
 
   return res.status(status).json({ message: err.message });

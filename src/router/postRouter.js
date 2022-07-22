@@ -5,6 +5,7 @@ const router = express.Router();
 const postController = require('../controllers/postController');
 
 router.use(validateJwt);
+router.get('/:id', postController.getPostById);
 router.get('/', postController.getPosts);
 router.post('/', postController.addPost);
 
