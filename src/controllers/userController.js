@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const userService = require('../services/userService');
-const { generateToken } = require('../helpers/generateToken');
+const { generateToken } = require('../helpers/token');
 
 // GET
 const getUser = async (_req, res) => {

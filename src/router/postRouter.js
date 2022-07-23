@@ -6,6 +6,7 @@ const postController = require('../controllers/postController');
 
 router.use(validateJwt);
 router.get('/:id', postController.getPostById);
+router.put('/:id', postController.editPost);
 router.get('/', postController.getPosts);
 router.post('/', postController.addPost);
 

@@ -1,7 +1,8 @@
-const jwt = require('jsonwebtoken');
-const { secret } = require('../helpers/generateToken');
+// const jwt = require('jsonwebtoken');
+// const { secret } = require('../helpers/token');
 const { User } = require('../database/models');
 const throwError = require('../helpers');
+const { decodeToken } = require('../helpers/token');
 
 const validateJwt = async (req, res, next) => {
   const token = req.headers.authorization;
@@ -9,7 +10,8 @@ const validateJwt = async (req, res, next) => {
   if (!token) return res.status(401).json({ message: 'Token not found' });
 
   try {
-    const decoded = jwt.verify(token, secret);
+    // const decoded = jwt.verify(token, secret);
+    const decoded = decodeToken(token);
 
     const user = await User.findOne({ where: { email: decoded.data.email } });
 

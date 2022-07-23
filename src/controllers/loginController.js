@@ -1,5 +1,5 @@
 const loginService = require('../services/loginService');
-const { generateToken } = require('../helpers/generateToken');
+const { generateToken } = require('../helpers/token');
 
 // POST
 const login = async (req, res, next) => {
@@ -7,8 +7,9 @@ const login = async (req, res, next) => {
 
   if (data.error) return next(data.error);
 
-  // Gerando token
+// Gerando token
   const token = generateToken(data);
+  console.log(data);
 
   return res.status(200).json({ token });
 };

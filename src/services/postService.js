@@ -57,8 +57,27 @@ const addPost = async (blogPost) => {
   return postInfo;
 };
 
+// PUT
+const editPost = async (userId, postId, edit) => {
+  let post = await getPostById(postId);
+  post = post.toJSON();
+
+  if (post.user.id !== userId) return throwError('unauthorized', 'Unauthorized user');
+
+  const { title, content } = edit;
+  await BlogPost.update(
+    { title, content },
+    { where: { id: postId } },
+    );
+
+  const editedPost = await getPostById(postId);
+
+  return editedPost;
+};
+
 module.exports = {
   getPosts,
   addPost,
   getPostById,
+  editPost,
 };
