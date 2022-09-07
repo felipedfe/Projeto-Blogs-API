@@ -21,9 +21,7 @@ const statusByErrorMessage = {
 
 module.exports = (err, req, res, _next) => {
   if (err.isJoi) {
-    console.log(err.isJoi);
     const errorMessage = err.message;
-    console.log('--->', errorMessage);
 
     const statusJoi = statusByErrorMessage[errorMessage];
     return res.status(statusJoi)

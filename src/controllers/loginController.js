@@ -9,7 +9,6 @@ const login = async (req, res, next) => {
 
 // Gerando token
   const token = generateToken(data);
-  console.log(data);
 
   return res.status(200).json({ token });
 };
