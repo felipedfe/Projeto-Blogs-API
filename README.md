@@ -1,16 +1,28 @@
-# 🚧 README em construção 🚧
+# Blogs API
 
-<!-- Olá, Tryber!
+## •Descrição
+Projeto de uma API e um banco de dados para a produção de conteúdo para um Blog usando Node.js e o pacote Sequelize para fazer um CRUD de posts. 
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+## •Tecnologias e bibliotecas
+- Javascript
+- Node.js
+- Express
 
-É essencial que você preencha esse documento por conta própria, ok?
+## •Executando a aplicação
+- Clone o repositório em sua máquina
+- No terminal, instale as dependência da aplicação: ```npm install```
+- Agora é só colocar a aplicação para rodar: ```npm start```
+- Criar um arquivo .env na raiz do projeto com as variáveis de ambiente:
+```#### SERVER VARS
+NODE_ENV=development
+API_PORT=3000
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+#### DATABASE VARS
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_DB_NAME=blogs-api
+MYSQL_USER=root
+MYSQL_PASSWORD=password
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
-
--->
+#### SECRECT VARS
+JWT_SECRET=secretJWT```
