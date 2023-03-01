@@ -1,18 +1,18 @@
 # Blogs API
 
-## •Descrição
-Projeto de uma API e um banco de dados para a produção de conteúdo para um Blog usando Node.js e o pacote Sequelize para fazer um CRUD de posts. 
+## •Description
+An API and a database for producing content for a Blog using Node.js and the Sequelize package to make a CRUD of posts. 
 
-## •Tecnologias e bibliotecas
+## •Technologies and Libraries
 - Javascript
 - Node.js
 - Express
 
-## •Executando a aplicação
-- Clone o repositório em sua máquina
-- No terminal, instale as dependência da aplicação: ```npm install```
-- Agora é só colocar a aplicação para rodar: ```npm start```
-- Criar um arquivo .env na raiz do projeto com as variáveis de ambiente:
+## •How to run the application
+- Clone the repository on your machine
+- In the terminal, install the application's dependencies: `npm install`
+- Run the app: `npm start`
+- Create an .env file in the root of the project with the environment variables:
 ```#### SERVER VARS
 NODE_ENV=development
 API_PORT=3000
